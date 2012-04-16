@@ -1,0 +1,21 @@
+The w3c-validator-to-rally is a gem that ready an inputed URL and return all W3C Errors on this URL and the user can create a defect on Rally, one by each defect founded.
+
+Install:
+
+Just type in your command-line:
+
+"gem install w3c-validator-to-rally"
+
+Usage:
+
+This gem is divided in two parts: W3CValidator and Rally.
+
+To init the W3C part, create a variable and init her.
+
+"W3CValidatorToRally::W3CValidator.new"
+
+
+
+To init the Rally part, create another variable(or use the same variable) and set:
+
+"W3CValidatorToRally::Rally.new"
