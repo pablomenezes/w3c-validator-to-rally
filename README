@@ -1,23 +1,44 @@
-The w3c-validator-to-rally is a gem that ready an inputed URL and return all W3C Errors on this URL and the user can create a defect on Rally, one by each defect founded.
+<b>Installing the gem</b>
 
-Install:
+To install the gem, is just type the following command in your prompt:
 
-Just type in your command-line:
+<i>gem install w3c-validator-to-rally</i>
 
-"gem install w3c-validator-to-rally"
+<b>Using the gem</b>
 
-or download the gem(disponible in this repo, and install manually).
+To get started with the gem, first you have to require it.
 
-Usage:
+<i>require ‘w3c-validator-to-rally’</i>
 
-This gem is divided in two parts: W3CValidator and Rally.
+The gem is divided between to classes: W3CValidator and Rally. First you have to use the class W3CValidator for searching an error. Then is just initiate a new instance from class, look at the following example:
 
-To init the W3C part, create a variable and init her.
+<i>validateW3C = W3CValidatorToRally.W3CValidator.new</i>
 
-"W3CValidatorToRally::W3CValidator.new"
+Now you need to define the url to be verified, using the URL and the parameter from the function defineURI.
 
+<i>validateW3C.defineURI(url)</i>
 
+With the URL already defined, you can start the validation. Create a variable to store the returned errors using the command startValidation.
 
-To init the Rally part, create another variable(or use the same variable) and set:
+<i>errors = validateW3C.startValidation</i>
 
-"W3CValidatorToRally::Rally.new"
+For searching errors, this function uses mechanize(url). The default “agent” used (recommended) is “Windows Mozilla”, already set as default, in case you prefer another “agent”, you can pass the wanted agent as a parameter.
+
+<i>errors = validateW3C.startValidation(anotherAgent)</i>
+
+All returned errors are inside the variable “errors”, in other words, an errors array.
+
+With those stored errors, now you can connect to Rally to create defects.
+To get started with the class Rally, create another variable and initiate it.
+
+<i>rally = W3CValidatorToRally::Rally.new</i>
+
+With the started class, connect to Rally, with the propriety “connect”, look at the following example.
+
+<i>rally.connect(“login”,”pass”)</i>
+
+Now is connected, use the propriety createDefects, passing as parameters the array of returned errors and the id of your project on Rally.
+
+<i>rally.createDefects(“1234567890”,errors)</i>
+
+Wait for the creation of all defects and then check on Rally the created defects.
