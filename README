@@ -1,13 +1,12 @@
-# W3C-Validator-to-Rally #
+W3C-Validator-to-Rally
 
-## Installing the gem ##
+Installing the gem
 
 To install the gem, is just type the following command in your prompt:
 
-'''ruby
     gem install w3c-validator-to-rally
-'''
-## Using the gem ###
+
+Using the gem
 
 To get started with the gem, first you have to require it.
 
