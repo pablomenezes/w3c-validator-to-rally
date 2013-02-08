@@ -4,9 +4,7 @@
 
 To install the gem, is just type the following command in your prompt:
 
-```ruby
     gem install w3c-validator-to-rally
-```
 
 ## Using the gem ##
 
